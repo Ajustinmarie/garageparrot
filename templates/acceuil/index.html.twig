@@ -1,20 +1,77 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AcceuilController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+   {% block content %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/ecf_garage/src/Controller/AcceuilController.php'|file_link(0) }}">src/Controller/AcceuilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/ecf_garage/templates/acceuil/index.html.twig'|file_link(0) }}">templates/acceuil/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+     <div id="slide_principale">                           
+                          
+                          <div class="slide_principale_contenu">
+                                          <img class="slide_principale" src="{{asset('assets/img/travailleur.jpg')}}" alt="">
+                          </div>
+
+                          <div class="slide_principale_contenu">
+                                          <img class="slide_principale" src="{{asset('assets/img/travailleur2.jpg')}}" alt="">
+                          </div>
+                         
+                       
+
+            </div>                  
+
+
+            <div id="rubrique_service_conteneur">                  
+                     <div class="rubrique_service_contenu">SERVICE AUTOMOBILE COMPLET</div>
+                     <div class="rubrique_service_contenu">Nous proposons une gamme complète de services de garage aux propriétaires de véhicules situés à Cergy et dans les environs. Le Garage V.Parot vous propose une large gamme de services automobiles.</div>
+                     <div class="rubrique_service_contenu">
+                                <div class="rubrique_service_content">
+                                                <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt=""><br/>Reparation de la carrosserie
+                                </div>   
+
+                                <div class="rubrique_service_content">
+                                                <img class="img_service" src="{{asset('assets/img/service_2.jpg')}}" alt=""><br/>mecanique des voitures
+                                </div>   
+
+                                <div class="rubrique_service_content">
+                                            <img class="img_service" src="{{asset('assets/img/service_3.jpg')}}" alt=""><br/>entretien régulier des véhicules
+                                </div>   
+
+                                <div class="rubrique_service_content">
+                                            <img class="img_service" src="{{asset('assets/img/service_4.jpg')}}" alt=""><br/>Vente de véhicules
+                                </div>  
+                               
+                     </div>
+            </div>
+
+            <div id="rubrique_contact_conteneur">
+                          
+                     <div class="rubrique_contact_contenu">VOUS AVEZ UNE QUESTION</div>
+                     <div class="rubrique_contact_contenu couleur"><a href="#">NOUS CONTACTER</a></div>
+ 
+            </div>
+
+
+            <div id="rubrique_temoignage_conteneur">
+
+                      <div class="rubrique_temoignage_conteneur">
+                              NOTRE MISSION <br/><br/>
+                              Moderne et parfaitement équipé, le Garage Parrot entretient vos véhicules et propose également des occasions toutes marques garanties. Il assure également le diagnostic et la réparation toutes marques de vos véhicules.
+                              Dans notre garage, patrons et collaborateurs ont un contact direct avec les clients, toujours plus nombreux. Nous privilégions une relation de confiance avec vous, et nous mettons tous notre savoir-faire à votre service afin de vous vous permettre d'obtenir sans délai et sans intermédiaire les renseignements et conseils dont vous avez besoin. Durant le temps d'immobilisation de votre véhicule dans notre garage, un véhicule de courtoisie est mis gratuitement à votre disposition.
+                      </div>
+
+                      <div class="rubrique_temoignage_conteneur">
+                        <a href="#">VOS TEMOIGNAGES CLIENT</a> <br/><br/> 
+                        Nom: Arthur Note: 17/20<br/>
+                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte<br/>
+                        <br/><br/>
+                        Nom: Arthur Note: 15/20<br/>
+                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte <br/>
+                        <br/><br/>
+                        Nom: Arthur Note: 10/20<br/>
+                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte 
+
+                    </div>
+            </div>
+
+
+
+   {% endblock %}

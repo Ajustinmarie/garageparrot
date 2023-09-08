@@ -1,19 +1,75 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap" rel="stylesheet">
+
+       <!-- Bootstrap core CSS -->
+    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+   <link rel="stylesheet" href="{{asset('assets/css/boutiquefrancaise.css')}}">
+
+    <script src="{{asset('assets/js/animation.js')}}"></script>
+
+</head>
+<body>
+         <header>
+
+            <div id="header_conteneur">
+
+          
+
+                    <div class="header_contenu"><img src="{{asset('assets/img/logo.jpg')}}" alt=""></div>                  
+                    <div class="header_contenu">
+                               
+                             <div class="header_content">
+                                <a href="{{path('acceuil')}}"> Accueil </a> | <a href="#"> carrosserie </a> | <a href="#"> Mecanique </a> | <a href="#"> Entretien </a> | <a href="{{path('ventes')}}"> Vente de véhicules </a> | 
+                                {% if app.user %} 
+                                <a href="{{path('app_logout')}}"> Se deconnecter </a>   
+                                {% else %} 
+                                <a href="{{path('app_login')}}"> Se connecter | </a>
+                                 {% endif %}
+                            </div>
+                        
+                   </div>
+
+            </div>
+          
+        </header>         
+
+  
+
+           {% block content %}
+
+
+          
+
+            {% endblock %}
+           
+            <footer>
+
+                <div id="footer_contenu">
+
+                          <div class="footer_content"><a href="#">Adresse: 4 rue des gemeaux 95800</a></div>
+                          <div class="footer_content"><a href="#">Nous contacter</a><br/><a href="#">0612785534</a></div>
+                          <div class="footer_content">HORAIRES<br/>lundi: 08:30-12:00 - 14:00-18:30<br/>Mardi: 08:30-12:00 - 14:00-18:30<br/>Mercredi: 08:30-12:00 - 14:00-18:30<br/>Jeudi: 08:30-12:00 - 14:00-18:30<br/>Vendredi: 08:30-12:00 - 14:00-18:30<br/>Samedi: Fermé<br/>Dimanche: Fermé</div>
+
+
+                </div>
+
+
+            </footer>
+
+
+
+            
+      
+</body>
 </html>

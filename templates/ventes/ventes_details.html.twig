@@ -7,15 +7,14 @@
 
                                     <div class="contenant_1">
                                         TABLEAU CARACTERISTIQUE<br/><br/>                              
-                                        Marque et modèle : Toyota Camry<br/><br/>
-                                        Année de fabrication : 1988<br/><br/>
-                                        Type de carrosserie : berline<br/><br/>
-                                        Moteur : Cylindrée<br/><br/>
-                                        Transmission : Manuelle<br/><br/>
-                                        Performances : Vitesse maximale<br/><br/>
-                                        Capacité d'accueil : 6<br/><br/>
-                                        Émissions de CO2 : 120<br/><br/>
-                                        Prix : 1200<br/><br/>
+                                        Nom Marque et modèle : {{voiture.nom}}<br/><br/>
+                                        Année de fabrication : {{voiture.anneecirculation}}<br/><br/>
+                                        Type de carrosserie : {{voiture.carrosserie}}<br/><br/>
+                                        Moteur : {{voiture.moteur}}<br/><br/>
+                                        Transmission : {{voiture.transmission}}<br/><br/>
+                                        Kilométrage : {{voiture.kilometrage}} <br/><br/>
+                                        Prix : {{voiture.prix}} <br/><br/>
+                                        Contact : {{voiture.contact}} <br/><br/>
                                     </div>
 
 
@@ -24,19 +23,19 @@
                                             <div class="content_1">
                                                             <div class="content_2">
                                                                     <div class="img_galerie_1">
-                                                                        <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt="">
+                                                                        <img class="img_service" src="/upload/{{voiture.image1}}" alt="">
                                                                     </div>
                                                                     <div class="img_galerie_2">
-                                                                        <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt="">
+                                                                         <img class="img_service" src="/upload/{{voiture.image2}}" alt="">
                                                                     </div>
                                                             </div>
 
                                                             <div class="content_2">
                                                                     <div class="img_galerie_3">
-                                                                        <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt="">
+                                                                        <img class="img_service" src="/upload/{{voiture.image3}}" alt="">
                                                                     </div>
                                                                     <div class="img_galerie_4">
-                                                                        <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt="">
+                                                                         <img class="img_service" src="/upload/{{voiture.image4}}" alt="">
                                                                     </div>
                                                            </div>
                                             </div>
@@ -45,14 +44,20 @@
 
         <div id="forum_discussion">
 
-                   <div class="">
-                        FORMUM DISCUSSION
-                   </div>
+                   {% if notification %}
+                   <div class="alert alert-info">{{notification}}</div>
+                   {% endif %}
 
                    <div class="">
-                         FORMULAIRE
+                       FORMULAIRE DE CONTACT
                    </div>
 
+                 
+
+                   <div class="">
+                         {{form(form)}}
+                   </div>
+<!--
                    <div class=" message_couleur">
                     Nom: Arthur Prenom: Vange<br/>    
                     MESSAGE LECTEUR
@@ -67,6 +72,7 @@
                     Nom: Arthur Prenom: Vange<br/>    
                     MESSAGE LECTEUR
                    </div>
+-->
                    
         </div>
 

@@ -31,9 +31,10 @@
                     <div class="header_contenu">
                                
                              <div class="header_content">
-                                <a href="{{path('acceuil')}}"> Accueil </a> | <a href="#"> carrosserie </a> | <a href="#"> Mecanique </a> | <a href="#"> Entretien </a> | <a href="{{path('ventes')}}"> Vente de véhicules </a> | 
+                                <a href="{{path('acceuil')}}"> Accueil </a> | <a href="{{path('temoignages')}}"> Temoignages </a> | <a href="{{path('ventes')}}"> Vente de véhicules </a> | 
                                 {% if app.user %} 
-                                <a href="{{path('app_logout')}}"> Se deconnecter </a>   
+                                <a href="{{path('app_logout')}}"> Se deconnecter </a>  |
+                                  <a href="{{path('espaceemployer')}}"> Mon espace </a>  
                                 {% else %} 
                                 <a href="{{path('app_login')}}"> Se connecter | </a>
                                  {% endif %}
@@ -50,7 +51,7 @@
            {% block content %}
 
 
-          
+        
 
             {% endblock %}
            
@@ -59,8 +60,14 @@
                 <div id="footer_contenu">
 
                           <div class="footer_content"><a href="#">Adresse: 4 rue des gemeaux 95800</a></div>
-                          <div class="footer_content"><a href="#">Nous contacter</a><br/><a href="#">0612785534</a></div>
-                          <div class="footer_content">HORAIRES<br/>lundi: 08:30-12:00 - 14:00-18:30<br/>Mardi: 08:30-12:00 - 14:00-18:30<br/>Mercredi: 08:30-12:00 - 14:00-18:30<br/>Jeudi: 08:30-12:00 - 14:00-18:30<br/>Vendredi: 08:30-12:00 - 14:00-18:30<br/>Samedi: Fermé<br/>Dimanche: Fermé</div>
+                          <div class="footer_content"><a href="{{path('message_contact')}}">Nous contacter</a><br/><a href="#">0612785534</a></div>
+                             <div class="footer_content">HORAIRES<br/>
+                          
+                           {% for horaire in horaires  %}
+                           {{horaire.jour}}: {{horaire.programme}}<br/>
+                           {% endfor %}  
+
+                </div>
 
 
                 </div>

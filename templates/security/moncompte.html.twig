@@ -7,9 +7,50 @@
 
 {% block content %}
 
-   <h1>Inscription</h1>
 
-   {{form(form)}}
+{% if notification %}
+<div class="alert alert-info">{{notification}}</div>
+{% endif %}
+
+
+
+
+     <div class="row">
+
+               <div class="col-md-4">      
+                           <h1>Création compte employé</h1>
+                           {{form(form)}}
+               </div>
+
+
+               <div class="col-md-8">
+                        
+                           <h1>Liste de utilisateurs</h1> 
+
+                              <div class="row product-container">
+                                          {% for utilisateur in utilisateurs  %}
+                                                      <div class="col-md-3">                                                      
+                                                      {{utilisateur.nom}}
+                                                      </div>
+                                                      <div class="col-md-3">                                                      
+                                                      {{utilisateur.prenom}}
+                                                      </div>
+                                                       <div class="col-md-3">                                                      
+                                                      {{utilisateur.email}}
+                                                      </div>
+                                                      <div class="col-md-3">                                                      
+                                                       <a href="{{path('supp_user',{'id':utilisateur.id})}}">(X)</a>
+                                                      </div>
+                                          {% endfor %}
+                              </div>      
+               </div>
+
+
+     </div>
+
+
+
+
 
 
 {% endblock %}

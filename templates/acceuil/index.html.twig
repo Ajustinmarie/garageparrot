@@ -23,10 +23,15 @@
                      <div class="rubrique_service_contenu">SERVICE AUTOMOBILE COMPLET</div>
                      <div class="rubrique_service_contenu">Nous proposons une gamme complète de services de garage aux propriétaires de véhicules situés à Cergy et dans les environs. Le Garage V.Parot vous propose une large gamme de services automobiles.</div>
                      <div class="rubrique_service_contenu">
-                                <div class="rubrique_service_content">
-                                                <img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt=""><br/>Reparation de la carrosserie
-                                </div>   
+                                
+                               {% for service in services  %}
 
+                                <div class="rubrique_service_content">
+                                                <img class="img_service" src="/upload/{{service.image}}" alt=""><br/>{{service.Nomservice}}      
+                                </div>   
+                
+
+                         <!--
                                 <div class="rubrique_service_content">
                                                 <img class="img_service" src="{{asset('assets/img/service_2.jpg')}}" alt=""><br/>mecanique des voitures
                                 </div>   
@@ -38,6 +43,10 @@
                                 <div class="rubrique_service_content">
                                             <img class="img_service" src="{{asset('assets/img/service_4.jpg')}}" alt=""><br/>Vente de véhicules
                                 </div>  
+                        
+                        -->   
+                                {% endfor  %}   
+
                                
                      </div>
             </div>
@@ -45,7 +54,7 @@
             <div id="rubrique_contact_conteneur">
                           
                      <div class="rubrique_contact_contenu">VOUS AVEZ UNE QUESTION</div>
-                     <div class="rubrique_contact_contenu couleur"><a href="#">NOUS CONTACTER</a></div>
+                     <div class="rubrique_contact_contenu couleur"><a href="{{path('message_contact')}}">NOUS CONTACTER</a></div>
  
             </div>
 
@@ -59,19 +68,19 @@
                       </div>
 
                       <div class="rubrique_temoignage_conteneur">
-                        <a href="#">VOS TEMOIGNAGES CLIENT</a> <br/><br/> 
-                        Nom: Arthur Note: 17/20<br/>
-                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte<br/>
-                        <br/><br/>
-                        Nom: Arthur Note: 15/20<br/>
-                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte <br/>
-                        <br/><br/>
-                        Nom: Arthur Note: 10/20<br/>
-                        Commentaire: Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte 
-
+                        <a href="{{path('temoignages')}}">VOS TEMOIGNAGES CLIENT</a> <br/><br/> 
+                              {% for temoignage in temoignages  %}
+                                        Nom: {{temoignage.nom}} Note: {{temoignage.note}}<br/>
+                                        Commentaire:{{temoignage.commentaire}}<br/>
+                                        <br/><br/>
+                               {% endfor  %}  
+                                           
                     </div>
             </div>
 
 
 
    {% endblock %}
+
+
+

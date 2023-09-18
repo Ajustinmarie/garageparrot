@@ -7,18 +7,41 @@
 
 {% block content %}
 
+{% if app.user.administrateur  %}
+<h2>Espace administrateur</h2>
+{% endif %}
+
 <h4>Bienvenue ({{app.user.nom}} {{app.user.prenom}}) </h4>
 
 <h7>Nombre de message à répondre: 0 </h7> <br/>
 <h7>Nombre de message à répondre sur le forum ventes des voitures: 0 </h7> <br/>
 <h7>Nombre de témoignage à approuver: 0 </h7> <br/><br/>
-<h6><a href="{{path('mon_compte_pass_modif')}}">Modification mot de passe</a></h6>
-<h6><a href="#">Ajouter une voiture</a></h6>
-<h6><a href="#">Approuver un témoignage</a></h6>
-<h6><a href="#">Ajouter un témoignage</a></h6>
-<h6><a href="#">Répondre à un message</a></h6>
 
-<h6><a href="#">Répondre à un message sur le forum des ventes de voitures</a></h6>
+{% if app.user.administrateur  %}
+
+         <h6><a href="{{path('mon_compte')}}">Créer un compte employé</a></h6>
+         
+{% endif %}
+
+<h6><a href="{{path('mon_compte_pass_modif')}}">Modification son mot de passe</a></h6>
+
+{% if app.user.administrateur  %}
+<h6><a href="{{path('service')}}">Ajouter un service</a></h6>
+{% endif %}
+
+
+{% if app.user.administrateur  %}
+<h6><a href="{{path('horaires_details')}}">Programme hebdomadaire</a></h6>
+{% endif %}
+
+<h6><a href="{{path('ajouter_une_voiture')}}">Ajouter une voiture</a></h6>
+<h6><a href="{{path('temoignages_approbation')}}">Approuver un témoignage</a></h6>
+<h6><a href="{{path('temoignages')}}">Ajouter un témoignage</a></h6>
+<h6><a href="{{path('reponse_message')}}">Répondre à un message</a></h6>
+
+
+
+
 
 
 {% endblock %}

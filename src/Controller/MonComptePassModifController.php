@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Entity\Horaires;
 
 class MonComptePassModifController extends AbstractController
 {
@@ -62,9 +63,12 @@ class MonComptePassModifController extends AbstractController
     
         }
 
+        $horaires=$this->entityManager->getRepository(Horaires::class)->findAll();
+
         return $this->render('mon_compte_pass_modif/index.html.twig', [
             'form' => $form->createView(),
-            'notification'=>$notification
+            'notification'=>$notification,
+            'horaires'=>$horaires
         ]);
     }
 }

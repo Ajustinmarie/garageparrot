@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+
+
+ <div class="row">
+
+               <div class="col-md-4">      
+                           <h4>Inserer un jour de la semaine</h4>
+                          {{form(form)}}
+               </div>
+
+
+               <div class="col-md-8">
+                        
+                           <h4>Programme de la semaine</h4> 
+
+                              <div class="row product-container">
+
+                                             
+
+                                                            <div class="row product-container">
+                                                                        {% for horaire in horaires  %}
+                                                                                    <div class="col-md-3">                                                      
+                                                                                    {{horaire.jour}}
+                                                                                    </div>
+                                                                                    <div class="col-md-3">                                                      
+                                                                                    {{horaire.programme}}
+                                                                                    </div>
+                                                                                      <div class="col-md-3">                                                      
+                                                                                       <a href="{{path('horaires_suppression',{'id':horaire.id})}}">(X)</a>
+                                                                                    </div>
+                                                                                     <div class="col-md-3">                                                      
+                                                                                       <a href="{{path('horaires_update',{'id':horaire.id})}}">(0)</a>
+                                                                                    </div>
+                                                                        {% endfor %}
+                                                            </div>     
+                                        
+                              </div>      
+               </div>
+
+
+ </div>
+
+
+
+{% endblock %}

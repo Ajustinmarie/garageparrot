@@ -53,6 +53,11 @@ class ReponseMessageController extends AbstractController
         {
         
         $message_contacts=$this->entityManager->getRepository(MessageContact::class)->findOneByid($id);
+        
+           if(!$message_contacts)
+        {
+         return $this->redirectToRoute('reponse_message');
+        }
 
 
         $messagecontact=new MessageContact();

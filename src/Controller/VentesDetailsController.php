@@ -33,6 +33,11 @@ class VentesDetailsController extends AbstractController
         $horaires=$this->entityManager->getRepository(Horaires::class)->findAll();
 
         $voiture=$this->entityManager->getRepository(Voitures::class)->findOneByid($id);
+        
+        if(!$voiture)
+        {
+            return $this->redirectToRoute('ventes');
+        }
        
 
         $identifiant=$voiture->getid();
@@ -62,7 +67,7 @@ class VentesDetailsController extends AbstractController
              $this->entityManager->persist($messagecontact);
               $this->entityManager->flush();
               $notification='Message envoyé';
-             return $this->redirectToRoute('message_contact');
+            // return $this->redirectToRoute('message_contact');
         }
 
 

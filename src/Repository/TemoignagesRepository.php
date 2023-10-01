@@ -62,7 +62,10 @@ public function SelectionCondition(): array
 public function SelectionConditionLimit(): array
 {
         $conn = $this->getEntityManager()->getConnection();
-        $sql = "SELECT * FROM temoignages WHERE status IS NOT NULL LIMIT 3 ";        
+        $sql = "SELECT * FROM temoignages
+        WHERE status IS NOT NULL
+        ORDER BY ID DESC
+        LIMIT 3;";        
         $stmt = $conn->prepare($sql);
         $resultSet = $stmt->executeQuery();
         // returns an array of arrays (i.e. a raw data set)

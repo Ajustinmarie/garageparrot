@@ -62,7 +62,7 @@
 
                                                 {% for voituretrie in voituretries  %}
                                                     <div class="article_vente_content">
-                                                    Prix: {{voituretrie.prix}} Euros<br/><img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt=""><br/>{{voituretrie.nom}}<br/>Année: {{voituretrie.anneecirculation}}<br/>Diesel<br/>{{voituretrie.kilometrage}}km<br/><br/><a href="{{path('ventes_details',{'id':voituretrie.id})}}">Détails</a>
+                                                    Prix: {{voituretrie.prix}} Euros<br/><img class="img_service" src="/garageParrot/public/upload/{{voituretrie.image1}}" alt=""><br/>{{voituretrie.nom}}<br/>Année: {{voituretrie.anneecirculation}}<br/>Diesel<br/>{{voituretrie.kilometrage}}km<br/><br/><a href="{{path('ventes_details',{'id':voituretrie.id})}}">Détails</a>
                                                     </div>
                                                 {% endfor %}           
                                         
@@ -71,7 +71,7 @@
                                         
                                                 {% for voituresvente in voituresventes  %}
                                                     <div class="article_vente_content">
-                                                    Prix: {{voituresvente.prix}} Euros<br/><img class="img_service" src="{{asset('assets/img/service_1.jpg')}}" alt=""><br/>{{voituresvente.nom}}<br/>Année: {{voituresvente.anneecirculation}}<br/>Diesel<br/>{{voituresvente.kilometrage}}km<br/><br/><a href="{{path('ventes_details',{'id':voituresvente.id})}}">Détails</a>
+                                                    Prix: {{voituresvente.prix}} Euros<br/><img class="img_service" src="/garageParrot/public/upload/{{voituresvente.image1}}" alt=""><br/>{{voituresvente.nom}}<br/>Année: {{voituresvente.anneecirculation}}<br/>Diesel<br/>{{voituresvente.kilometrage}}km<br/><br/><a href="{{path('ventes_details',{'id':voituresvente.id})}}">Détails</a>
                                                     </div>
                                                 {% endfor %}
                                         
@@ -79,12 +79,7 @@
                         
                          </div>
           </section>
-
-
-
-
-
-
+          
 
 
           

@@ -72,6 +72,12 @@ $horaires=$this->entityManager->getRepository(Horaires::class)->findAll();
 
        $horaire_update=$this->entityManager->getRepository(Horaires::class)->find($id);
      //  dd($horaire_update->getJour());
+     
+     
+          if(!$horaire_update)
+     {
+      return $this->redirectToRoute('horaires_details');
+     }
 
         $jour=$horaire_update->getJour();
         $programme=$horaire_update->getProgramme();

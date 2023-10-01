@@ -36,9 +36,9 @@ class ServiceController extends AbstractController
 if ($request->isMethod('POST')) 
 {
 
-            $nom=$request->request->get('nom');
-            $description=$request->request->get('description');
-            $image_service= $request->files->get('image_service');
+            $nom=htmlspecialchars($request->request->get('nom'));
+            $description=htmlspecialchars($request->request->get('description'));
+            $image_service=$request->files->get('image_service');
 
            
           
@@ -87,7 +87,7 @@ if ($request->isMethod('POST'))
           }
           else
           {
-                $notification='Votre service n\'a pas pu etre bien enregistré';
+                $notification='Votre service n\'a pas pu etre bien enregistré veuillez renseigner les champs obligatoires';
           }
    
     
@@ -214,6 +214,11 @@ if ($request->isMethod('POST'))
     
 }
  $service2s=$this->entityManager->getRepository(ServiceRepertoire::class)->find($id);
+ 
+  if(!$service2s)
+ {
+  return $this->redirectToRoute('service');
+ }
 
  $services=$this->entityManager->getRepository(ServiceRepertoire::class)->findAll();
 // $services=$this->entityManager->getRepository(ServiceRepertoire::class)->findOneBy($id);

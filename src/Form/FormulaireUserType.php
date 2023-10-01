@@ -32,13 +32,13 @@ class FormulaireUserType extends AbstractType
 
 
            ->add('prenom', TextType::class, [
-            'label' => 'Nom',
+            'label' => 'Prenom',
             'constraints'=>new Length([
                 'min'=>2,
                 'max'=>30
             ]),
             'attr'=>[
-                'placeholder'=>'Merci de saisir votre nom'
+                'placeholder'=>'Merci de saisir votre prenom'
             ]
            ])
 

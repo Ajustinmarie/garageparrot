@@ -6,6 +6,8 @@
                     
                      <h4>Liste des témoignages</h4>
                     <div class="row">
+                        
+                           {% if notification==null %}
                                 
                                   {% for temoignage in temoignages  %}
 
@@ -25,6 +27,13 @@
                                </div>
 
                                 {% endfor  %}  
+                         
+                           {% else %}
+                            <div class="alert alert-info">
+                           Vous avez aucun témoignages a approuver pour le moment
+                           </div>
+                           </div>
+                           {% endif %}
 
 
                     </div>

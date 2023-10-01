@@ -33,14 +33,14 @@ class AjouterUneVoitureController extends AbstractController
         
             if ($request->isMethod('POST')) 
             {
-                                $nomdevoiture=$request->request->get('nom_voiture');
-                                $prix=$request->request->get('prix');
-                                $anneecirculation=$request->request->get('annee_circulation');
-                                $kilometrage=$request->request->get('kilometrage');
-                                $contact=$request->request->get('contact');
-                                $moteur=$request->request->get('moteur');
-                                $transmission=$request->request->get('transmission');
-                                $carrosserie=$request->request->get('carrosserie');
+                                $nomdevoiture=htmlspecialchars($request->request->get('nom_voiture'));
+                                $prix=htmlspecialchars($request->request->get('prix'));
+                                $anneecirculation=htmlspecialchars($request->request->get('annee_circulation'));
+                                $kilometrage=htmlspecialchars($request->request->get('kilometrage'));
+                                $contact=htmlspecialchars($request->request->get('contact'));
+                                $moteur=htmlspecialchars($request->request->get('moteur'));
+                                $transmission=htmlspecialchars($request->request->get('transmission'));
+                                $carrosserie=htmlspecialchars($request->request->get('carrosserie'));
 
                                 $image1= $request->files->get('image1');
                                 $image2= $request->files->get('image2');
@@ -123,7 +123,7 @@ class AjouterUneVoitureController extends AbstractController
                                 }    
                                 else
                                 {
-                                      $notification='Votre voiture n\'a pas pu etre bien enregistré';
+                                      $notification='Votre voiture n\'a pas pu etre bien enregistré veuillez remplir tous les champs obligatoires';
                                 }             
             }      
 
@@ -165,6 +165,11 @@ class AjouterUneVoitureController extends AbstractController
         $notification=null;
         $notification2=null;
         $voiture=$this->entityManager->getRepository(Voitures::class)->findOneByid($id);
+        
+            if(!$voiture)
+           {
+            return $this->redirectToRoute('ajouter_une_voiture');
+           }
   
       if ($request->isMethod('POST')) 
       {

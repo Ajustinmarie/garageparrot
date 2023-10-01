@@ -25,13 +25,20 @@ class TemoignagesApprobationController extends AbstractController
      */
     public function index(): Response
     {
-
+         $notification=null;
         $horaires=$this->entityManager->getRepository(Horaires::class)->findAll();
         /* Liste des temoignages */
        $temoignages=$this->entityManager->getRepository(Temoignages::class)->SelectionApprouv();
+       
+       if(!$temoignages)
+       {
+            $notification='Vous n\'avez aucun témoignages à approuver pour le moment';
+       }
+     
         return $this->render('temoignages/approbation.html.twig', [
             'horaires'=>$horaires,
-            'temoignages'=>$temoignages
+            'temoignages'=>$temoignages,
+            'notification'=>$notification
         ]);
     }
 

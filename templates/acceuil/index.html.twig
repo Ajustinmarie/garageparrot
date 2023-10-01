@@ -27,27 +27,12 @@
                                {% for service in services  %}
 
                                 <div class="rubrique_service_content">
-                                                <img class="img_service" src="/upload/{{service.image}}" alt=""><br/>{{service.Nomservice}}      
+                                                <img class="img_service" src="/garageParrot/public/upload/{{service.image}}" alt=""><br/>{{service.Nomservice}}      
                                 </div>   
                 
-
-                         <!--
-                                <div class="rubrique_service_content">
-                                                <img class="img_service" src="{{asset('assets/img/service_2.jpg')}}" alt=""><br/>mecanique des voitures
-                                </div>   
-
-                                <div class="rubrique_service_content">
-                                            <img class="img_service" src="{{asset('assets/img/service_3.jpg')}}" alt=""><br/>entretien régulier des véhicules
-                                </div>   
-
-                                <div class="rubrique_service_content">
-                                            <img class="img_service" src="{{asset('assets/img/service_4.jpg')}}" alt=""><br/>Vente de véhicules
-                                </div>  
-                        
-                        -->   
                                 {% endfor  %}   
 
-                               
+                          
                      </div>
             </div>
 
@@ -70,7 +55,7 @@
                       <div class="rubrique_temoignage_conteneur">
                         <a href="{{path('temoignages')}}">VOS TEMOIGNAGES CLIENT</a> <br/><br/> 
                               {% for temoignage in temoignages  %}
-                                        Nom: {{temoignage.nom}} Note: {{temoignage.note}}<br/>
+                                        Nom: {{temoignage.nom}} Note: {{temoignage.note}}/20<br/>
                                         Commentaire:{{temoignage.commentaire}}<br/>
                                         <br/><br/>
                                {% endfor  %}  

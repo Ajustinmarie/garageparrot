@@ -27,6 +27,7 @@ class MessageContactController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $notification=null;
         $horaires=$this->entityManager->getRepository(Horaires::class)->findAll();
 
         $messagecontact=new MessageContact();
@@ -37,12 +38,14 @@ class MessageContactController extends AbstractController
             {
                 $this->entityManager->persist($messagecontact);
                 $this->entityManager->flush();
-                return $this->redirectToRoute('message_contact');
+                // return $this->redirectToRoute('message_contact');
+                 $notification='votre message à bien été posté';
             }
 
         return $this->render('message_contact/index.html.twig', [
                'horaires'=>$horaires,
-               'form'=>$form->createView()
+               'form'=>$form->createView(),
+                'notification'=>$notification
         ]);
     }
 }
